@@ -2,10 +2,25 @@
 import './App.css';
 
 
-function Tester() {
-  return <p>🔥testing out</p>
-
+function Card(props) {
+  return (
+    <section>
+      <h2>{props.icon} Title</h2>
+      {props.children}
+    </section>
+  );
 }
 
+function MyIcon() {
+  return <i>🔥</i>;
+}
 
-export default Tester;
+export default function App() {
+  return (
+    <div>
+      <Card icon={<MyIcon />}>
+        <p>The body of the card</p>
+      </Card>
+    </div>
+  );
+}
