@@ -10,12 +10,10 @@ const Image = ({ src }) => {
     )
 }
 
-const Title = ({title}) => {
+const Title = ({ title }) => {
     return (
         <div>
-            <h6>
-                {title}
-            </h6>
+            {title}
         </div>
     )
 }
@@ -23,14 +21,16 @@ const Title = ({title}) => {
 const Author = ({ author }) => {
     return (
         <div>
-            {author}
+            <h6>
+                {author}
+            </h6>
         </div>
     )
 }
 
 const Book = ({ src, title, author}) => {
     return (
-        <div>
+        <div className='book'>
             <Image src={src} />
             <Title  title={title} />
             <Author author={author} />
@@ -42,9 +42,12 @@ const Book = ({ src, title, author}) => {
 function BestSellers() {
     return (
         <>
-            <h2>Best Sellers</h2>
-            <Book src='logo192.png' title='huj' author='lmao'/>
-            <Book src='logo192.png' title='XD' author='lmao'/>
+        <h2 className='title'>Best Sellers</h2>
+        <div className='best-sellers'>
+            <Book src='logo192.png' title='"Mega ksionzka roku"' author='nice autor'/>
+            <Book src='logo192.png' title='"Super ksiazka"' author='swietny autor'/>
+            <Book src='logo192.png' title='"Fantastyczna ksiazka"' author='mistrzowski autor'/>
+        </div>
         </>
     )
 }
