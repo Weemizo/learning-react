@@ -2,14 +2,44 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-const Book = ({src, title, author}) => {
-    return (
-        <div className='book'>
-            <img src={src} alt="" /> 
-            <h2>{title}</h2>
-            <h4>{author.toUpperCase()}</h4>
-        </div>
-    )
+const books = [
+    {
+        author: 'Jan Kowalski',
+        title: '"Ksiazka roku"',
+        src: 'logo192.png'
+    },
+    {
+        author: 'Adam Nowak',
+        title: '"Ksiazka roku 2"',
+        src: 'logo192.png'
+    },
+]
+
+const Book = () => {
+    return <>
+            {books.map((book) => {
+            return <div className='book'>
+                <img src={book.src} alt="" />
+                <h2>{book.author}</h2>
+                <h4>{book.title}</h4>
+                </div>
+})}
+            </>
+    
+}
+
+const BookList = () => {
+    return <>
+            {books.map((book) => {
+            const [src, author, title] = book;
+            return <div className='book'>
+                <img src={src} alt="" />
+                <h2>{author}</h2>
+                <h4>{title}</h4>
+                </div>
+})}
+            </>
+    
 }
 
 
@@ -18,9 +48,7 @@ function BestSellers() {
         <>
         <h2 className='title'>Best Sellers</h2>
         <div className='best-sellers'>
-            <Book src='logo192.png' title='"Mega ksionzka roku"' author='nice autor'/>
-            <Book src='logo192.png' title='"Super ksiazka"' author='swietny autor'/>
-            <Book src='logo192.png' title='"Fantastyczna ksiazka"' author='mistrzowski autor'/>
+            <Book/>
         </div>
         </>
     )
