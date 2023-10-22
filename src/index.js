@@ -28,18 +28,16 @@ const Book = () => {
     
 }
 
-const BookList = () => {
-    return <>
-            {books.map((book) => {
-            const [src, author, title] = book;
-            return <div className='book'>
-                <img src={src} alt="" />
-                <h2>{author}</h2>
-                <h4>{title}</h4>
+const BookList = ({ src, author, title }) => {
+        return src ? (
+                <div className='book'>
+                    <img src={src} alt={title} />
+                    <h2>{author}</h2>
+                    <h4>{title}</h4>
                 </div>
-})}
-            </>
-    
+            ) : (
+                <div className='book'>No props provided</div>
+            )
 }
 
 
@@ -48,7 +46,8 @@ function BestSellers() {
         <>
         <h2 className='title'>Best Sellers</h2>
         <div className='best-sellers'>
-            <Book/>
+            <Book />
+            <BookList src="logo192.png" author="Jan Macier" title='"Ksiazka roku 3"'/>
         </div>
         </>
     )
